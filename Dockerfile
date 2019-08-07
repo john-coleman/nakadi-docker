@@ -4,7 +4,7 @@ MAINTAINER andrey.dyachkov@gmail.com
 
 WORKDIR /tmp
 RUN apt-get update && apt-get install -y curl wget jq tar
-RUN wget -O nakadi.tar.gz $(curl --silent "https://api.github.com/repos/zalando/nakadi/releases/latest" | jq -r .tarball_url)
+RUN wget -O nakadi.tar.gz "https://codeload.github.com/zalando/nakadi/tar.gz/r3.2.4-2019-08-01"
 RUN tar -xvf nakadi.tar.gz --strip-components=1
 RUN wget -O nakadi-authz-file-plugin-0.1.jar https://github.com/adyach/nakadi-authz-file-plugin/releases/download/v0.1/nakadi-authz-file-plugin-0.1.jar
 RUN cp nakadi-authz-file-plugin-0.1.jar plugins/nakadi-authz-file-plugin-0.1.jar
